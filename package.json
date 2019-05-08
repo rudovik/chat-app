@@ -1,0 +1,24 @@
+{
+  "name": "chat-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.16.4",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "env-cmd": "^9.0.1",
+    "jest": "^24.8.0",
+    "nodemon": "^1.19.0",
+    "supertest": "^4.0.2"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "env-cmd -e dev nodemon src/index.js",
+    "test": "env-cmd -e test jest --watch --runInBand"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
