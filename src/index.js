@@ -1,15 +1,21 @@
 const path = require('path');
+const http = require('http');
 const express = require('express');
+const socketio = require('socket.io');
 
 const app = express();
-const port = process.env.PORT;
+const server = http.createServer(app);
+const io = socketio(server);
 
-// Define patsh for Express config
+const port = process.env.PORT;
 const publicDirectoryPath = path.join(__dirname, '../public');
 
-// Setup static directory to serve
 app.use(express.static(publicDirectoryPath));
 
-app.listen(port, () => {
-  console.log('Server is up on port ' + port + '.');
+io.on('connection', () => {
+  console.log('New websocket connection');
+});
+
+server.listen(port, () => {
+  console.log(`Server is up on port ${port}!`);
 });
